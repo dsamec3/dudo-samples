@@ -12,7 +12,7 @@ Preduvijeti:
 * pripremljena je instanca MySLQ poslužitelja sa "testdb" bazom podataka (kao kontejner napravljen na temelju standardnog 
   MySQL image-a sa persistent storage-om)
 * kreiran je configMap objekt koji sadrži podatke "server.env" datoteke za demo okolinu (sadrži WLP i MySQL podatke)
-* kreirati u lokalnom Openshift registry-u repo naziva "wlp-centos"
+* kreiran je Image Stream naziva "wlp-jdbc-sample" (oc create imagestream wlp-jdbc-sample)
 
 B. Koraci kod uspostave demo-a
 ==============================
@@ -29,5 +29,6 @@ B. Koraci kod uspostave demo-a
   (wlp-centos-deployconfig.yaml).
   Da bi se ispravno pokrenuo WLP i aplikacija mogla pristupiti "testdb" bazi podataka potrebno je u 
   Deployconfig objektu mount-ati "server.env" datoteku korištenjem 
-* 
+
+* kreirati Service za deploy-ani Pod
 
