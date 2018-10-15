@@ -10,16 +10,16 @@ COPY app/* /opt/ibm/wlp/usr/servers/defaultServer/dropins/
 
 # RUN chmod a+rwx /opt/ibm/wlp/output/defaultServer
 # RUN chmod 777 -R /opt/ibm/wlp/ /logs
-RUN chown -R 1001:0 /config \
-    && chmod -R g+rw /config \
-    && chown -R 1001:0 /opt/ibm/docker/docker-server \
-    && chmod -R g+rwx /opt/ibm/docker/docker-server \
-    && chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer \
-    && chmod -R g+rw /opt/ibm/wlp/usr/servers/defaultServer \
-    && chown -R 1001:0 /opt/ibm/wlp/output \
-    && chmod -R g+rw /opt/ibm/wlp/output \
-    && chown -R 1001:0 /logs \
-    && chmod -R g+rw /logs
+# RUN chown -R 1001:0 /config \
+#    && chmod -R g+rw /config \
+#    && chown -R 1001:0 /opt/ibm/docker/docker-server \
+#    && chmod -R g+rwx /opt/ibm/docker/docker-server \
+#    && chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer \
+#    && chmod -R g+rw /opt/ibm/wlp/usr/servers/defaultServer \
+#    && chown -R 1001:0 /opt/ibm/wlp/output \
+#    && chmod -R g+rw /opt/ibm/wlp/output \
+#    && chown -R 1001:0 /logs \
+#    && chmod -R g+rw /logs
 
 # IBM WebSphere Liberty license must be accepted
 ENV LICENSE $LICENSE
