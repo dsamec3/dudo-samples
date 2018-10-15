@@ -1,5 +1,6 @@
 # FROM websphere-liberty:webProfile7
-FROM 172.30.1.1:5000/openshift/websphere-liberty:webProfile7
+# FROM 172.30.1.1:5000/openshift/websphere-liberty:webProfile7
+FROM 172.30.1.1:5000/myproject/wlp-centos:dudo
 
 # Add binary deployment artifact to 'dropins' folder
 # RUN wget --directory-prefix=/opt/ibm/wlp/usr/servers/defaultServer/dropins/ $BINARY_DEPLOYMENT_ARTIFACT_URL
@@ -25,5 +26,4 @@ RUN useradd -u 1001 -r -g 0 -s /sbin/nologin default \
 ENV LICENSE $LICENSE
 
 USER 1001
-# RUN /opt/ibm/wlp/bin/installUtility install  --acceptLicense \
-#     ejbLite-3.1
+
