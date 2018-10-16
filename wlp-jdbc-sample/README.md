@@ -30,5 +30,5 @@ B. Koraci kod uspostave demo-a
   Da bi se ispravno pokrenuo WLP i aplikacija mogla pristupiti "testdb" bazi podataka potrebno je u 
   Deployconfig objektu mount-ati "server.env" datoteku korištenjem 
 
-* kreirati Service za deploy-ani Pod
+* kreirati Service za deploy-ani Pod (oc create -f wlp-jdbc-sample-service.json)
 

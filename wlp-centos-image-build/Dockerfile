@@ -107,7 +107,8 @@ ENV WLP_OUTPUT_DIR=/opt/ibm/wlp/output
 RUN mkdir /logs \
     && ln -s $WLP_OUTPUT_DIR/defaultServer /output \
     && ln -s /opt/ibm/wlp/usr/servers/defaultServer /config \
-    && ln -s /opt/ibm /liberty
+    && ln -s /opt/ibm /liberty \
+    && mkdir /config/configDropins
 
 # Configure WebSphere Liberty
 RUN /opt/ibm/wlp/bin/server create \
@@ -139,12 +140,8 @@ COPY server.xml /config/
 RUN server start && server stop && rm -rf /output/resources/security/
 
 ##################################################
-# Create symlinks && set permissions for non-root user
-RUN ln -s $WLP_OUTPUT_DIR/defaultServer /output \
-    && ln -s /opt/ibm/wlp/usr/servers/defaultServer /config  \
-    && ln -s /opt/ibm /liberty \
-    && mkdir /config/configDropins \
-    && useradd -u 1001 -r -g 0 -s /sbin/nologin default \
+# Set permissions for non-root user
+RUN useradd -u 1001 -r -g 0 -s /sbin/nologin default \
     && chown -R 1001:0 /config \
     && chmod -R g+rw /config \
     && chown -R 1001:0 /opt/ibm/docker/docker-server \
