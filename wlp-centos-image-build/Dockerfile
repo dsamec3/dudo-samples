@@ -109,8 +109,6 @@ RUN mkdir /logs \
     && ln -s /opt/ibm/wlp/usr/servers/defaultServer /config \
     && ln -s /opt/ibm /liberty
 
-RUN mkdir /config/configDropins
-
 # Configure WebSphere Liberty
 RUN /opt/ibm/wlp/bin/server create \
     && rm -rf $WLP_OUTPUT_DIR/.classCache /output/workarea
@@ -141,6 +139,8 @@ COPY server.xml /config/
 RUN server start && server stop && rm -rf /output/resources/security/
 
 ##################################################
+# RUN mkdir /config/configDropins
+
 # Set permissions for non-root user
 RUN useradd -u 1001 -r -g 0 -s /sbin/nologin default \
     && chown -R 1001:0 /config \
