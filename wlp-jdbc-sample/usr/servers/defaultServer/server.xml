@@ -4,7 +4,7 @@
 	<featureManager>
 		<feature>localConnector-1.0</feature>
 		<feature>jsp-2.3</feature>
-		<feature>jdbc-4.1</feature>
+		<feature>jdbc-4.2</feature>
 	</featureManager>
 
 	<!-- To access this server from a remote client add a host attribute to 

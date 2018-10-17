@@ -10,4 +10,3 @@ COPY app/* /opt/ibm/wlp/usr/servers/defaultServer/dropins/
 ENV LICENSE accept
 
 USER 1001
-
