@@ -87,7 +87,7 @@ ENV JAVA_HOME=/opt/ibm/java/jre \
     IBM_JAVA_OPTIONS="-XX:+UseContainerSupport"
 
 ##################################################
-# Install WebSphere Liberty
+# Install WebSphere Liberty (kernel)
 ENV LIBERTY_VERSION 18.0.0_03
 ARG LIBERTY_URL
 ARG DOWNLOAD_OPTIONS=""
@@ -139,7 +139,7 @@ COPY server.xml /config/
 RUN server start && server stop && rm -rf /output/resources/security/
 
 ##################################################
-# RUN mkdir /config/configDropins
+RUN mkdir /config/configDropins
 
 # Set permissions for non-root user
 RUN useradd -u 1001 -r -g 0 -s /sbin/nologin default \
